@@ -3,9 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lab Reports - Web Application Design</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .main-container {
+            display: flex;
+            width: 80%;
+        }
+        .left-panel {
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .left-panel button {
+            padding: 10px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            cursor: pointer;
+            background-color: #f9f9f9;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .left-panel button:hover {
+            background-color: #ddd;
+        }
+        .tabs-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .tab {
+            padding: 10px 15px;
+            border: 2px solid #333;
+            border-radius: 15px;
+            cursor: pointer;
+            text-align: center;
+            background-color: #f9f9f9;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .tab.active {
+            background-color: #4CAF50;
+            color: white;
+            transform: scale(1.1);
+        }
+        .tab:hover {
+            background-color: #ddd;
+        }
+        .content-container {
+            width: 70%;
+            padding: 20px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            margin-left: 20px;
+        }
+        .content {
+            text-align: center;
+            font-size: 18px;
+        }
+    </style>
 </head>
 <body>
+    <h1>Lab Reports - Web Application Design</h1>
+
+    <div class="tabs-container">
+        <div class="tab active" data-content="lab1.1">Лабораторна робота №1.1</div>
+        <div class="tab" data-content="lab1.2">Лабораторна робота №1.2</div>
+        <div class="tab" data-content="lab2.1">Лабораторна робота №2.1</div>
+        <div class="tab" data-content="lab2.2">Лабораторна робота №2.2</div>
+        <div class="tab" data-content="lab3.1">Лабораторна робота №3.1</div>
+        <div class="tab" data-content="lab3.2">Лабораторна робота №3.2</div>
+        <div class="tab" data-content="lab4.1">Лабораторна робота №4.1</div>
+        <div class="tab" data-content="lab4.2">Лабораторна робота №4.2</div>
+    </div>
+
+    <div class="main-container">
+        <div class="left-panel">
+            <button onclick="showSection('desc')">Опис предметного середовища</button>
+            <button onclick="showSection('info')">Тема, Мета, Місце</button>
+            <button onclick="showSection('structure')">Структура документа</button>
+            <button onclick="showSection('tables')">HTML-код таблиць</button>
+            <button onclick="showSection('images')">HTML-код зображення</button>
+            <button onclick="showSection('lists')">HTML-код списків</button>
+            <button onclick="showSection('conclusion')">Висновки</button>
+            <button onclick="showSection('assignments')">Додаткові завдання</button>
+        </div>
+
+        <div class="content-container">
+            <div class="content" id="content">
+                Місце виведення інформації
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const tabs = document.querySelectorAll('.tab');
+        const content = document.getElementById('content');
     
+        // Handle tab switching
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                const contentText = tab.getAttribute('data-content');
+                content.textContent = `Ви вибрали: ${contentText}`;
+            });
+        });
+    
+        // Handle left-panel button clicks
+        function showSection(section) {
+            const sections = {
+                desc: `
+                    <h2>Опис предметного середовища</h2>
+                    <p><strong>Тема:</strong> Створення безкоштовного веб-сайту для вивчення ІТ-технологій "WowDev"</p>
+                    <p><strong>Мета проєкту:</strong> Створити безкоштовну освітню платформу для починаючих розробників, яка дозволить користувачам отримувати базові знання про ІТ, ознайомитися з сучасними технологіями, розвинути навички через інтерактивні матеріали та вправи, а також приєднатися до спільноти новачків в ІТ.</p>
+                    <h3>Сценарій використання сайту:</h3>
+                    <ol>
+                        <li>
+                            <strong>Ознайомлення з курсами та матеріалами:</strong> Користувач заходить на сайт і переглядає доступні безкоштовні курси за напрямками: основи програмування, веб-розробка, бази даних, робота з інструментами розробника тощо.
+                        </li>
+                        <li>
+                            <strong>Реєстрація та створення профілю:</strong> Користувач може зареєструватися на платформі та створити профіль, де вказує свої інтереси, технології, які хоче освоїти, та цілі навчання, щоб отримувати персоналізовані рекомендації.
+                        </li>
+                        <li>
+                            <strong>Проходження навчальних матеріалів:</strong> Користувач має доступ до уроків у форматі тексту, інтерактивних вправ та відеоматеріалів.
+                        </li>
+                        <li>
+                            <strong>Виконання практичних завдань:</strong> Користувачі виконують вправи та практичні завдання, щоб закріпити вивчене, отримуючи підказки та зворотний зв'язок.
+                        </li>
+                        <li>
+                            <strong>Спільнота та обговорення:</strong> Користувачі можуть спілкуватися з іншими новачками, ставити запитання, обговорювати матеріали, ділитися успіхами та підтримувати одне одного.
+                        </li>
+                        <li>
+                            <strong>Отримання рекомендацій:</strong> На основі активності та завершених курсів користувачеві пропонуються нові курси та матеріали.
+                        </li>
+                    </ol>
+                `,
+                info: `<p><strong>Тема:</strong> Створення безкоштовного веб-сайту для вивчення ІТ-технологій "WowDev"</p>
+                <p><strong>Мета проєкту:</strong> Створити безкоштовну освітню платформу для починаючих розробників, яка дозволить користувачам отримувати базові знання про ІТ, ознайомитися з сучасними технологіями, розвинути навички через інтерактивні матеріали та вправи, а також приєднатися до спільноти новачків в ІТ.</p>`,
+                structure: "<h2>Структура документа</h2><p>Опис структури документа.</p>",
+                tables: "<h2>HTML-код таблиць</h2><p>Опис коду таблиць.</p>",
+                images: "<h2>HTML-код зображення</h2><p>Опис коду зображень.</p>",
+                lists: "<h2>HTML-код списків</h2><p>Опис коду списків.</p>",
+                conclusion: "<h2>Висновки</h2><p>Опис висновків.</p>",
+                assignments: "<h2>Додаткові завдання</h2><p>Опис додаткових завдань.</p>"
+            };
+    
+            content.innerHTML = sections[section] || "<p>Місце виведення інформації</p>";
+        }
+    </script>    
 </body>
 </html>
