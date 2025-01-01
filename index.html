@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab Reports - Web Application Design</title>
+    <title>Lab Reports</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -73,11 +73,11 @@
     </style>
 </head>
 <body>
-    <h1>Lab Reports - Web Application Design</h1>
+    <h1>Lab Reports</h1>
 
     <div class="tabs-container">
         <div class="tab active" data-content="lab1.1">Лабораторна робота №1.1</div>
-        <div class="tab" data-content="lab1.2">Лабораторна робота №1.2</div>
+        <div class="tab" data-content="ХХХ">Лабораторна робота №1.2</div>
         <div class="tab" data-content="lab2.1">Лабораторна робота №2.1</div>
         <div class="tab" data-content="lab2.2">Лабораторна робота №2.2</div>
         <div class="tab" data-content="lab3.1">Лабораторна робота №3.1</div>
@@ -115,7 +115,7 @@
                 tabs.forEach(t => t.classList.remove('active'));
                 tab.classList.add('active');
                 const contentText = tab.getAttribute('data-content');
-                content.textContent = `Ви вибрали: ${contentText}`;
+                content.textContent = `${contentText}`;
             });
         });
     
@@ -150,12 +150,163 @@
                 `,
                 info: `<p><strong>Тема:</strong> Створення безкоштовного веб-сайту для вивчення ІТ-технологій "WowDev"</p>
                 <p><strong>Мета проєкту:</strong> Створити безкоштовну освітню платформу для починаючих розробників, яка дозволить користувачам отримувати базові знання про ІТ, ознайомитися з сучасними технологіями, розвинути навички через інтерактивні матеріали та вправи, а також приєднатися до спільноти новачків в ІТ.</p>`,
-                structure: "<h2>Структура документа</h2><p>Опис структури документа.</p>",
-                tables: "<h2>HTML-код таблиць</h2><p>Опис коду таблиць.</p>",
-                images: "<h2>HTML-код зображення</h2><p>Опис коду зображень.</p>",
-                lists: "<h2>HTML-код списків</h2><p>Опис коду списків.</p>",
-                conclusion: "<h2>Висновки</h2><p>Опис висновків.</p>",
-                assignments: "<h2>Додаткові завдання</h2><p>Опис додаткових завдань.</p>"
+                structure: `<h2>Заголовок документу (Head):</h2>
+  <ul>
+    <li>Визначення типу документу <code>&lt;!DOCTYPE html&gt;</code>.</li>
+    <li>Використання метатегів для визначення кодування (<code>UTF-8</code>) та налаштування адаптивності сторінки.</li>
+    <li>Підключення зовнішнього CSS-файлу для стилізації (<code>styles.css</code>).</li>
+    <li>Назва веб-сторінки ("WOWDev").</li>
+  </ul>
+  
+  <h2>Тіло документу (Body):</h2>
+  
+  <h3>Навігаційна панель (Nav):</h3>
+  <ul>
+    <li>Містить список пунктів меню та декоративний елемент із текстом.</li>
+  </ul>
+  
+  <h3>Головний заголовок (Header):</h3>
+  <ul>
+    <li>Відображає логотип сайту та назву.</li>
+  </ul>
+  
+  <h3>Основний контент (Main):</h3>
+  <ul>
+    <li>Секція з курсами: заголовок "Available Courses", таби (Python, JS, C#) та список курсів із описом.</li>
+    <li>Таблиця з темами Python та часом на їх вивчення.</li>
+    <li>Дорожня карта вивчення Python у вигляді впорядкованого списку.</li>
+    <li>Посилання на сторінку бізнес-логіки.</li>
+  </ul>
+  
+  <h3>Форма підписки у футері (Footer):</h3>
+  <ul>
+    <li>Форма для введення електронної пошти та кнопка підписки.</li>
+  </ul>
+  
+  <h2>Додаткові елементи:</h2>
+  <ul>
+    <li>Інтерактивні кнопки та стилізовані списки.</li>
+    <li>Зображення, інтегровані через теги <code>&lt;img&gt;</code>.</li>
+    <li>Посилання для переходу між сторінками.</li>
+    <li>Семантична організація секцій: <code>&lt;nav&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code>.</li>
+  </ul>`,
+                tables: `<pre><code>
+&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Python Topics&lt;/th&gt;
+            &lt;th&gt;Estimated Time to Learn&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Variables and Data Types&lt;/td&gt;
+            &lt;td&gt;1-2 days&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Control Flow (if, loops)&lt;/td&gt;
+            &lt;td&gt;2-3 days&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Functions&lt;/td&gt;
+            &lt;td&gt;3-5 days&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Object-Oriented Programming&lt;/td&gt;
+            &lt;td&gt;1-2 weeks&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+</code>  
+</pre><img src="website_table.png" width=400px" height="220px" alt="Website table">
+ <p>HTML таблиці використовуються для представлення даних у вигляді рядків та стовпців. Основні теги, що використовуються при створенні таблиць:</p>
+    <ul>
+        <li><strong>&lt;table&gt;</strong> — визначає таблицю.</li>
+        <li><strong>&lt;tr&gt;</strong> — визначає рядок таблиці.</li>
+        <li><strong>&lt;th&gt;</strong> — визначає заголовок стовпця (тобто, текст, який буде виділений жирним шрифтом та по центру).</li>
+        <li><strong>&lt;td&gt;</strong> — визначає окрему клітинку таблиці.</li>
+        <li><strong>&lt;caption&gt;</strong> — додає заголовок до таблиці.</li>
+        <li><strong>&lt;col&gt;</strong> — визначає властивості для стовпців таблиці.</li>
+        <li><strong>&lt;colgroup&gt;</strong> — групує один або кілька стовпців для застосування до них спільних властивостей.</li>
+    </ul>
+    <h2>Атрибути таблиць:</h2>
+    <ul>
+        <li><strong>border</strong> — визначає товщину та стиль ліній, що відокремлюють клітинки таблиці.</li>
+        <li><strong>cellspacing</strong> — встановлює відстань між клітинками таблиці.</li>
+        <li><strong>cellpadding</strong> — визначає відступи всередині клітинок таблиці.</li>
+        <li><strong>width</strong> — встановлює ширину таблиці або окремих стовпців.</li>
+        <li><strong>align</strong> — визначає вирівнювання таблиці або її елементів.</li>
+    </ul>`,
+                images: `<pre>
+<code>
+&lt;img src="python.png" alt="Course 1"&gt;
+&lt;img src="python1.png" alt="Course 2"&gt;
+</code>
+  </pre> <img src="python1.png" width="150px" height="90px" alt="Course 2">
+  <img src="python.png" width="150px" height="90px" alt="Course 1">
+  <p>Тег <strong>&lt;img&gt;</strong> використовується для вставки зображень на веб-сторінку. Ось основні атрибути цього тегу:</p>
+    <ul>
+        <li><strong>src</strong> — визначає шлях до зображення. Це обов'язковий атрибут для тегу <code>&lt;img&gt;</code>. Наприклад: <code>&lt;img src="image.jpg"&gt;</code>.</li>
+        <li><strong>alt</strong> — задає альтернативний текст, який відображатиметься, якщо зображення не може бути завантажене. Цей атрибут важливий для доступності та SEO. Наприклад: <code>&lt;img src="image.jpg" alt="Опис зображення"&gt;</code>.</li>
+        <li><strong>width</strong> — визначає ширину зображення. Може бути задано в пікселях або відсотках. Наприклад: <code>&lt;img src="image.jpg" width="300"&gt;</code>.</li>
+        <li><strong>height</strong> — визначає висоту зображення. Може бути задано в пікселях або відсотках. Наприклад: <code>&lt;img src="image.jpg" height="200"&gt;</code>.</li>
+        <li><strong>title</strong> — надає додаткову інформацію про зображення, яка може бути відображена при наведенні курсора на зображення. Наприклад: <code>&lt;img src="image.jpg" title="Це опис зображення"&gt;</code>.</li>
+        <li><strong>loading</strong> — визначає, коли зображення повинно завантажуватися (наприклад, <code>lazy</code> для відкладеного завантаження, коли зображення стає видимим). Наприклад: <code>&lt;img src="image.jpg" loading="lazy"&gt;</code>.</li>
+        <li><strong>srcset</strong> — використовується для вказівки декількох варіантів зображень для різних розмірів екрану або роздільної здатності. Це допомагає оптимізувати завантаження зображень на різних пристроях. Наприклад: <code>&lt;img src="image.jpg" srcset="image-400.jpg 400w, image-800.jpg 800w"&gt;</code>.</li>
+    </ul>
+`                 
+  ,
+                lists: `<pre>
+<code>
+&lt;ol class="roadmap-list"&gt;
+    &lt;li&gt;Master the Basics: Variables, Data Types&lt;/li&gt;
+    &lt;li&gt;Learn Advanced Topics: Decorators, Generators &lt;/li&gt;
+    &lt;li&gt;Dive into Frameworks: Work with Flask, Django, or FastAPI&lt;/li&gt;
+    &lt;li&gt;Understand Machine Learning Libraries: NumPy, Pandas&lt;/li&gt;
+    &lt;li&gt;Contribute to Open Source Projects&lt;/li&gt;
+&lt;/ol&gt;
+</code>
+  </pre><img src="website_list.png" width=800px" height="220px" alt="roadmap list">
+  <p>У HTML існують різні типи списків, які можна створювати за допомогою тегів. Ось основні з них:</p>
+    
+    <h2>1. Нумерований список (<code>&lt;ol&gt;</code>)</h2>
+    <p>Нумерований список використовується для перерахунку елементів, коли важливий порядок. Тег <code>&lt;ol&gt;</code> створює контейнер для списку, а кожен елемент списку визначається тегом <code>&lt;li&gt;</code>.</p>
+    <pre><code>&lt;ol&gt;
+        &lt;li&gt;Елемент 1&lt;/li&gt;
+        &lt;li&gt;Елемент 2&lt;/li&gt;
+        &lt;li&gt;Елемент 3&lt;/li&gt;
+    &lt;/ol&gt;</code></pre>
+    
+    <h2>2. Ненумерований список (<code>&lt;ul&gt;</code>)</h2>
+    <p>Ненумерований список використовується для перерахунку елементів, де порядок не має значення. Тег <code>&lt;ul&gt;</code> створює контейнер для списку, а кожен елемент списку визначається тегом <code>&lt;li&gt;</code>.</p>
+    <pre><code>&lt;ul&gt;
+        &lt;li&gt;Елемент 1&lt;/li&gt;
+        &lt;li&gt;Елемент 2&lt;/li&gt;
+        &lt;li&gt;Елемент 3&lt;/li&gt;
+    &lt;/ul&gt;</code></pre>
+    
+    <h2>3. Список з описами (<code>&lt;dl&gt;</code>)</h2>
+    <p>Список з описами використовується для створення пар "термін-опис". Тег <code>&lt;dl&gt;</code> визначає контейнер для списку, <code>&lt;dt&gt;</code> використовується для терміну, а <code>&lt;dd&gt;</code> — для опису терміну.</p>
+    <pre><code>&lt;dl&gt;
+        &lt;dt&gt;Термін 1&lt;/dt&gt;
+        &lt;dd&gt;Опис терміну 1&lt;/dd&gt;
+        &lt;dt&gt;Термін 2&lt;/dt&gt;
+        &lt;dd&gt;Опис терміну 2&lt;/dd&gt;
+    &lt;/dl&gt;</code></pre>
+
+    <h2>Атрибути для списків</h2>
+    <p>Ось кілька атрибутів, які можна застосовувати до списків:</p>
+    
+    <ul>
+        <li><strong>type</strong> — атрибут для списку <code>&lt;ol&gt;</code>, який дозволяє вибрати тип маркера (цифри, букви тощо). Наприклад: <code>&lt;ol type="a"&gt;</code> (маленькі літери).</li>
+        <li><strong>start</strong> — атрибут для списку <code>&lt;ol&gt;</code>, який визначає число, з якого має починатися нумерація. Наприклад: <code>&lt;ol start="5"&gt;</code>.</li>
+        <li><strong>reversed</strong> — атрибут для списку <code>&lt;ol&gt;</code>, який дозволяє відображати список у зворотному порядку.</li>
+        <li><strong>compact</strong> — атрибут для списку <code>&lt;ul&gt;</code>, який дозволяє зробити список більш компактним.</li>
+    </ul>
+`,
+                conclusion: `<h2>Висновки</h2><p>Я створила веб-сайт <strong>"WowDev"</strong> для вивчення ІТ-технологій, пройшла 9 уроків з Figma, створила макет застосунку, репозиторій на GitHub та налаштувала посилання на живу сторінку.</p>
+    <p>В проекті реалізовано HTML-код для головної сторінки з необхідними елементами (зображення, таблиці, списки, форма).</p>`,
+                assignments: `<p>ознайомилась з матеріалами по HTML, CSS від w3schools.com.</p>`
             };
     
             content.innerHTML = sections[section] || "<p>Місце виведення інформації</p>";
