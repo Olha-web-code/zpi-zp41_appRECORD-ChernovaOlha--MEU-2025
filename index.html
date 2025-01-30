@@ -1,132 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab Reports</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        h1 {
-            margin-bottom: 20px;
-        }
-        .main-container {
-            display: flex;
-            width: 80%;
-        }
-        .left-panel {
-            width: 30%;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .left-panel button {
-            padding: 10px;
-            border: 2px solid #333;
-            border-radius: 10px;
-            cursor: pointer;
-            background-color: #f9f9f9;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-        .left-panel button:hover {
-            background-color: #ddd;
-        }
-        .tabs-container {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        .tab {
-            padding: 10px 15px;
-            border: 2px solid #333;
-            border-radius: 15px;
-            cursor: pointer;
-            text-align: center;
-            background-color: #f9f9f9;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-        .tab.active {
-            background-color: #4CAF50;
-            color: white;
-            transform: scale(1.1);
-        }
-        .tab:hover {
-            background-color: #ddd;
-        }
-        .content-container {
-            width: 70%;
-            padding: 20px;
-            border: 2px solid #333;
-            border-radius: 10px;
-            margin-left: 20px;
-        }
-        .content {
-            text-align: center;
-            font-size: 18px;
-        }
-    </style>
+    <title>Звіти з лабораторних робіт</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <h1>Lab Reports</h1>
-
-    <div class="tabs-container">
-        <div class="tab active" data-content="lab1.1">Лабораторна робота №1.1</div>
-        <div class="tab" data-content="ХХХ">Лабораторна робота №1.2</div>
-        <div class="tab" data-content="lab2.1">Лабораторна робота №2.1</div>
-        <div class="tab" data-content="lab2.2">Лабораторна робота №2.2</div>
-        <div class="tab" data-content="lab3.1">Лабораторна робота №3.1</div>
-        <div class="tab" data-content="lab3.2">Лабораторна робота №3.2</div>
-        <div class="tab" data-content="lab4.1">Лабораторна робота №4.1</div>
-        <div class="tab" data-content="lab4.2">Лабораторна робота №4.2</div>
-    </div>
-
-    <div class="main-container">
-        <div class="left-panel">
-            <button onclick="showSection('desc')">Опис предметного середовища</button>
-            <button onclick="showSection('info')">Тема, Мета, Місце</button>
-            <button onclick="showSection('structure')">Структура документа</button>
-            <button onclick="showSection('tables')">HTML-код таблиць</button>
-            <button onclick="showSection('images')">HTML-код зображення</button>
-            <button onclick="showSection('lists')">HTML-код списків</button>
-            <button onclick="showSection('conclusion')">Висновки</button>
-            <button onclick="showSection('assignments')">Додаткові завдання</button>
+    <header>
+        <div class="header-text">
+            <h1>Звіти з лабораторних робіт</h1>
+            <p>З дисципліни: Проєктування WEB-застосувань</p>
+            <p>Студентка групи ЗПІ-зп41 Чернова Ольга Ігорівна</p>
         </div>
+    </header>
 
-        <div class="content-container">
-            <div class="content" id="content">
-                Місце виведення інформації
+    <nav>
+        <button onclick="showLab('lab1')">Лабораторна робота 1.1</button>
+        <button onclick="showLab('lab1_2')">Лабораторна робота 1.2</button>
+        <button onclick="showLab('lab2')">Лабораторна робота 2</button>
+        <button onclick="showLab('lab2_2')">Лабораторна робота 2.2</button>
+        <button onclick="showLab('lab3')">Лабораторна робота 3</button>
+        <button onclick="showLab('lab3_2')">Лабораторна робота 3.2</button>
+        <button onclick="showLab('lab4')">Лабораторна робота 4.1</button>
+        <button onclick="showLab('lab4_1')">Лабораторна робота 4.2</button>
+        <button onclick="showLab('lab5')">Лабораторна робота 5.1</button>
+        <button onclick="showLab('lab5_1')">Лабораторна робота 5.2</button>
+    </nav>
+
+    <main>
+
+        <div class="content">
+            <!-- Лабораторна робота 1 -->
+            <div id="lab1" class="content-section">
+                <div class="sidebar">
+                <button onclick="showSection('description', 'lab1')">Опис предметного середовища</button>
+                <button onclick="showSection('goal', 'lab1')">Тема, мета, місце</button>
+                <button onclick="showSection('structure', 'lab1')">Cтруктура документа</button>
+                <button onclick="showSection('tables', 'lab1')">HTML-код таблиць</button>
+                <button onclick="showSection('images', 'lab1')">HTML-код зображення</button>
+                <button onclick="showSection('lists', 'lab1')">HTML-код списки</button>
+                <button onclick="showSection('conclusion', 'lab1')">Висновки</button>
             </div>
-        </div>
-    </div>
-
-    <script>
-        const tabs = document.querySelectorAll('.tab');
-        const content = document.getElementById('content');
-    
-        // Handle tab switching
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                tabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                const contentText = tab.getAttribute('data-content');
-                content.textContent = `${contentText}`;
-            });
-        });
-    
-        // Handle left-panel button clicks
-        function showSection(section) {
-            const sections = {
-                desc: `
-                    <h2>Опис предметного середовища</h2>
-                    <p><strong>Тема:</strong> Створення безкоштовного веб-сайту для вивчення ІТ-технологій "WowDev"</p>
-                    <p><strong>Мета проєкту:</strong> Створити безкоштовну освітню платформу для починаючих розробників, яка дозволить користувачам отримувати базові знання про ІТ, ознайомитися з сучасними технологіями, розвинути навички через інтерактивні матеріали та вправи, а також приєднатися до спільноти новачків в ІТ.</p>
+            <div id="description" class="lab1-section content-section text-content">
+                    <h4>Опис предметного середовища</h4>
+                    <p>
+                        <strong>Тема:</strong> Створення безкоштовного веб-сайту для вивчення ІТ-технологій "WowDev"<br />
+                        <strong>Мета проєкту:</strong> 
+                        Створити безкоштовну освітню платформу для починаючих розробників, яка дозволить користувачам отримувати базові знання про ІТ, ознайомитися з сучасними технологіями, розвинути навички через інтерактивні матеріали та вправи, а також приєднатися до спільноти новачків в ІТ.
                     <h3>Сценарій використання сайту:</h3>
+                    </p>
                     <ol>
                         <li>
                             <strong>Ознайомлення з курсами та матеріалами:</strong> Користувач заходить на сайт і переглядає доступні безкоштовні курси за напрямками: основи програмування, веб-розробка, бази даних, робота з інструментами розробника тощо.
@@ -147,40 +72,27 @@
                             <strong>Отримання рекомендацій:</strong> На основі активності та завершених курсів користувачеві пропонуються нові курси та матеріали.
                         </li>
                     </ol>
-                `,
-                info: `<p><strong>Тема:</strong> Створення безкоштовного веб-сайту для вивчення ІТ-технологій "WowDev"</p>
-                <p><strong>Мета проєкту:</strong> Створити безкоштовну освітню платформу для починаючих розробників, яка дозволить користувачам отримувати базові знання про ІТ, ознайомитися з сучасними технологіями, розвинути навички через інтерактивні матеріали та вправи, а також приєднатися до спільноти новачків в ІТ.</p>
-                <h2>Посилання на репозиторії:</h2>
-    <ul>
-        <li>
-            <a href="https://github.com/Olha-web-code/zpi-zp41_appWEB--ChernovaOlha---2025" target="_blank">
-                GitHub Repository: zpi-zp41_appWEB--ChernovaOlha---2025
-            </a>
-            <br>
-            <a href="https://olha-web-code.github.io/zpi-zp41_appWEB--ChernovaOlha---2025/" target="_blank">
-                Live Page: zpi-zp41_appWEB--ChernovaOlha---2025
-            </a>
-        </li>
-        <li>
-            <a href="https://github.com/Olha-web-code/zpi-zp41_appRECORD-ChernovaOlha--MEU-2025" target="_blank">
-                GitHub Repository: zpi-zp41_appRECORD-ChernovaOlha--MEU-2025
-            </a>
-            <br>
-            <a href="https://olha-web-code.github.io/zpi-zp41_appRECORD-ChernovaOlha--MEU-2025/" target="_blank">
-                Live Page: zpi-zp41_appRECORD-ChernovaOlha--MEU-2025
-            </a>
-        </li>
-        <li>
-            <a href="https://github.com/Olha-web-code/zpi-zp41_appINDEPENDENT--ChernovaOlha----2025" target="_blank">
-                GitHub Repository: zpi-zp41_appINDEPENDENT--ChernovaOlha----2025
-            </a>
-            <br>
-            <a href="https://olha-web-code.github.io/zpi-zp41_appINDEPENDENT--ChernovaOlha----2025/" target="_blank">
-                Live Page: zpi-zp41_appINDEPENDENT--ChernovaOlha----2025
-            </a>
-        </li>
-    </ul>`,
-                structure: `<h2>Заголовок документу (Head):</h2>
+                </div>
+                <div id="goal" class="lab1-section content-section text-content">
+                    <p><strong>Тема:</strong> Створення безкоштовного веб-сайту для вивчення ІТ-технологій "WowDev"</p><br/>
+                    <p><strong>Мета:</strong> Створити безкоштовну освітню платформу для починаючих розробників, яка дозволить користувачам отримувати базові знання про ІТ, ознайомитися з сучасними технологіями, розвинути навички через інтерактивні матеріали та вправи, а також приєднатися до спільноти новачків в ІТ.
+                    </p>
+                    <a href="https://olha-web-code.github.io/zpi-zp41_appWEB--ChernovaOlha---2025/" style="margin-right: 10px;">Посилання на живу веб-сторінку</a>
+<a href="https://github.com/Olha-web-code/zpi-zp41_appWEB--ChernovaOlha---2025" style="margin-right: 30px;">Посилання на веб-сторінку</a><br/>
+
+<a href="https://olha-web-code.github.io/zpi-zp41_appRECORD-ChernovaOlha--MEU-2025/" style="margin-right: 10px;">Посилання на живу сторінку звітного HTML документа</a>
+<a href="https://github.com/Olha-web-code/zpi-zp41_appRECORD-ChernovaOlha--MEU-2025" style="margin-right: 30px;">Посилання на сторінку звітного HTML документа</a><br/>
+
+<a href="olha-web-code.github.io/zpi-zp41_appINDEPENDENT--ChernovaOlha----2025/" style="margin-right: 10px;">Посилання на живу сторінку з самостійними роботами</a>
+<a href="https://olha-web-code.github.io/zpi-zp41_appINDEPENDENT--ChernovaOlha----2025/">Посилання на сторінку з самостійними роботами</a>
+
+
+</a>
+
+                </div>
+                <div id="structure"class="lab1-section content-section text-content">
+                    <h4>СТРУКТУРА ДОКУМЕНТА</h4>
+                    <h2>Заголовок документу (Head):</h2>
   <ul>
     <li>Визначення типу документу <code>&lt;!DOCTYPE html&gt;</code>.</li>
     <li>Використання метатегів для визначення кодування (<code>UTF-8</code>) та налаштування адаптивності сторінки.</li>
@@ -219,37 +131,44 @@
     <li>Зображення, інтегровані через теги <code>&lt;img&gt;</code>.</li>
     <li>Посилання для переходу між сторінками.</li>
     <li>Семантична організація секцій: <code>&lt;nav&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code>.</li>
-  </ul>`,
-                tables: `<pre><code>
-&lt;table&gt;
-    &lt;thead&gt;
-        &lt;tr&gt;
-            &lt;th&gt;Python Topics&lt;/th&gt;
-            &lt;th&gt;Estimated Time to Learn&lt;/th&gt;
-        &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-        &lt;tr&gt;
-            &lt;td&gt;Variables and Data Types&lt;/td&gt;
-            &lt;td&gt;1-2 days&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-            &lt;td&gt;Control Flow (if, loops)&lt;/td&gt;
-            &lt;td&gt;2-3 days&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-            &lt;td&gt;Functions&lt;/td&gt;
-            &lt;td&gt;3-5 days&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-            &lt;td&gt;Object-Oriented Programming&lt;/td&gt;
-            &lt;td&gt;1-2 weeks&lt;/td&gt;
-        &lt;/tr&gt;
-    &lt;/tbody&gt;
-&lt;/table&gt;
-</code>  
-</pre><img src="website_table.png" width=400px" height="220px" alt="Website table">
- <p>HTML таблиці використовуються для представлення даних у вигляді рядків та стовпців. Основні теги, що використовуються при створенні таблиць:</p>
+  </ul>
+                </div>
+                <div id="tables"  class="lab1-section content-section text-content">
+                    <h4>HTML-код таблиці</h4>
+                    <pre><code>
+                        &lt;table&gt;
+                        &lt;thead&gt;
+                            &lt;tr&gt;
+                                &lt;th&gt;Python Topics&lt;/th&gt;
+                                &lt;th&gt;Estimated Time to Learn&lt;/th&gt;
+                            &lt;/tr&gt;
+                        &lt;/thead&gt;
+                        &lt;tbody&gt;
+                            &lt;tr&gt;
+                                &lt;td&gt;Variables and Data Types&lt;/td&gt;
+                                &lt;td&gt;1-2 days&lt;/td&gt;
+                            &lt;/tr&gt;
+                            &lt;tr&gt;
+                                &lt;td&gt;Control Flow (if, loops)&lt;/td&gt;
+                                &lt;td&gt;2-3 days&lt;/td&gt;
+                            &lt;/tr&gt;
+                            &lt;tr&gt;
+                                &lt;td&gt;Functions&lt;/td&gt;
+                                &lt;td&gt;3-5 days&lt;/td&gt;
+                            &lt;/tr&gt;
+                            &lt;tr&gt;
+                                &lt;td&gt;Object-Oriented Programming&lt;/td&gt;
+                                &lt;td&gt;1-2 weeks&lt;/td&gt;
+                            &lt;/tr&gt;
+                        &lt;/tbody&gt;
+                    &lt;/table&gt;
+                    </code></pre>
+                
+                    <h4>Скріншот таблиці</h4>
+                    <img src="website_table.png" alt="Скріншот таблиці" width="400">
+                
+                    <h4>Теорія про теги та атрибути, що застосовуються при створенні таблиць</h4>
+                    <p>HTML таблиці використовуються для представлення даних у вигляді рядків та стовпців. Основні теги, що використовуються при створенні таблиць:</p>
     <ul>
         <li><strong>&lt;table&gt;</strong> — визначає таблицю.</li>
         <li><strong>&lt;tr&gt;</strong> — визначає рядок таблиці.</li>
@@ -266,15 +185,24 @@
         <li><strong>cellpadding</strong> — визначає відступи всередині клітинок таблиці.</li>
         <li><strong>width</strong> — встановлює ширину таблиці або окремих стовпців.</li>
         <li><strong>align</strong> — визначає вирівнювання таблиці або її елементів.</li>
-    </ul>`,
-                images: `<pre>
-<code>
-&lt;img src="python.png" alt="Course 1"&gt;
-&lt;img src="python1.png" alt="Course 2"&gt;
-</code>
-  </pre> <img src="python1.png" width="150px" height="90px" alt="Course 2">
-  <img src="python.png" width="150px" height="90px" alt="Course 1">
-  <p>Тег <strong>&lt;img&gt;</strong> використовується для вставки зображень на веб-сторінку. Ось основні атрибути цього тегу:</p>
+    </ul>
+    </div>
+                
+
+                <div id="images" class="lab1-section content-section text-content">
+                    <h4>HTML-код зображення</h4>
+                    <pre><code>
+                &lt;section&gt;
+                    &lt;h2&gt;Зображення&lt;/h2&gt;
+                    &lt;img src="/python.png" alt="Course 1" width="300" height="100"&gt;
+                &lt;/section&gt;
+                    </code></pre>
+                
+                    <h4>Скріншот зображення</h4>
+                    <img src="python.png" alt="Course 1" width="400">
+                
+                    <h4>Теорія про атрибути тегу &lt;img&gt;</h4>
+                    <p>Тег <strong>&lt;img&gt;</strong> використовується для вставки зображень на веб-сторінку. Ось основні атрибути цього тегу:</p>
     <ul>
         <li><strong>src</strong> — визначає шлях до зображення. Це обов'язковий атрибут для тегу <code>&lt;img&gt;</code>. Наприклад: <code>&lt;img src="image.jpg"&gt;</code>.</li>
         <li><strong>alt</strong> — задає альтернативний текст, який відображатиметься, якщо зображення не може бути завантажене. Цей атрибут важливий для доступності та SEO. Наприклад: <code>&lt;img src="image.jpg" alt="Опис зображення"&gt;</code>.</li>
@@ -284,20 +212,23 @@
         <li><strong>loading</strong> — визначає, коли зображення повинно завантажуватися (наприклад, <code>lazy</code> для відкладеного завантаження, коли зображення стає видимим). Наприклад: <code>&lt;img src="image.jpg" loading="lazy"&gt;</code>.</li>
         <li><strong>srcset</strong> — використовується для вказівки декількох варіантів зображень для різних розмірів екрану або роздільної здатності. Це допомагає оптимізувати завантаження зображень на різних пристроях. Наприклад: <code>&lt;img src="image.jpg" srcset="image-400.jpg 400w, image-800.jpg 800w"&gt;</code>.</li>
     </ul>
-`                 
-  ,
-                lists: `<pre>
-<code>
-&lt;ol class="roadmap-list"&gt;
-    &lt;li&gt;Master the Basics: Variables, Data Types&lt;/li&gt;
-    &lt;li&gt;Learn Advanced Topics: Decorators, Generators &lt;/li&gt;
-    &lt;li&gt;Dive into Frameworks: Work with Flask, Django, or FastAPI&lt;/li&gt;
-    &lt;li&gt;Understand Machine Learning Libraries: NumPy, Pandas&lt;/li&gt;
-    &lt;li&gt;Contribute to Open Source Projects&lt;/li&gt;
-&lt;/ol&gt;
-</code>
-  </pre><img src="website_list.png" width=800px" height="220px" alt="roadmap list">
-  <p>У HTML існують різні типи списків, які можна створювати за допомогою тегів. Ось основні з них:</p>
+                </div>
+                
+                <div id="lists"class="lab1-section content-section text-content">
+                    <h4>HTML-код списків</h4>
+                    <pre><code>
+                        &lt;ol class="roadmap-list"&gt;
+                        &lt;li&gt;Master the Basics: Variables, Data Types&lt;/li&gt;
+                        &lt;li&gt;Learn Advanced Topics: Decorators, Generators &lt;/li&gt;
+                        &lt;li&gt;Dive into Frameworks: Work with Flask, Django, or FastAPI&lt;/li&gt;
+                        &lt;li&gt;Understand Machine Learning Libraries: NumPy, Pandas&lt;/li&gt;
+                        &lt;li&gt;Contribute to Open Source Projects&lt;/li&gt;
+                    &lt;/ol&gt;
+                    </code></pre>
+                
+                    <img src="website_list.png" alt="Roadmap List" width="400">
+                
+                    <p>У HTML існують різні типи списків, які можна створювати за допомогою тегів. Ось основні з них:</p>
     
     <h2>1. Нумерований список (<code>&lt;ol&gt;</code>)</h2>
     <p>Нумерований список використовується для перерахунку елементів, коли важливий порядок. Тег <code>&lt;ol&gt;</code> створює контейнер для списку, а кожен елемент списку визначається тегом <code>&lt;li&gt;</code>.</p>
@@ -333,14 +264,1385 @@
         <li><strong>reversed</strong> — атрибут для списку <code>&lt;ol&gt;</code>, який дозволяє відображати список у зворотному порядку.</li>
         <li><strong>compact</strong> — атрибут для списку <code>&lt;ul&gt;</code>, який дозволяє зробити список більш компактним.</li>
     </ul>
-`,
-                conclusion: `<h2>Висновки</h2><p>Я створила веб-сайт <strong>"WowDev"</strong> для вивчення ІТ-технологій, пройшла 9 уроків з Figma, створила макет застосунку, репозиторій на GitHub та налаштувала посилання на живу сторінку.</p>
-    <p>В проекті реалізовано HTML-код для головної сторінки з необхідними елементами (зображення, таблиці, списки, форма).</p>`,
-                assignments: `<p>ознайомилась з матеріалами по HTML, CSS від w3schools.com.</p>`
-            };
-    
-            content.innerHTML = sections[section] || "<p>Місце виведення інформації</p>";
+                </div>
+                
+
+                <div id="conclusion" class="lab1-section content-section text-content">
+                    <h4>Висновок</h4>
+                    <p>Я створила веб-сайт <strong>"WowDev"</strong> для вивчення ІТ-технологій, пройшла 9 уроків з Figma, створила макет застосунку, репозиторій на GitHub та налаштувала посилання на живу сторінку.</p>
+    <p>В проекті реалізовано HTML-код для головної сторінки з необхідними елементами (зображення, таблиці, списки, форма).</p>
+                </div>
+                
+            </div>
+
+            <div id="lab1_2" class="content-section">
+                <div class="sidebar">
+                    <button onclick="showSection('goal-1_2', 'lab1_2')">Тема, мета, місце розташування сайту та
+                        звіту</button>
+                    <button onclick="showSection('styleConnection', 'lab1_2')">СПОСОБИ ПІДКЛЮЧЕННЯ СТИЛІВ з
+                        прикладами</button>
+                    <button onclick="showSection('selectors', 'lab1_2')">СЕЛЕКТОРИ</button>
+                    <button onclick="showSection('tagSelector', 'lab1_2')">Селектор тегу</button>
+                    <button onclick="showSection('classSelector', 'lab1_2')">Селектор класу</button>
+                    <button onclick="showSection('idSelector', 'lab1_2')">Селектор ідентифікатор</button>
+                    <button onclick="showSection('otherSelectors', 'lab1_2')">Інші селектори</button>
+                    <button onclick="showSection('googleFonts', 'lab1_2')">Шрифт.Google Fonts</button>
+                    <button onclick="showSection('cssTablesBackgroundLists', 'lab1_2')">CSS:Таблиці.Фон.Списки</button>
+                    <button onclick="showSection('cssAdvanced', 'lab1_2')">CSS-просунутий</button>
+                    <button onclick="showSection('conclusions-1_2', 'lab1_2')">Висновки</button>
+                </div>
+                <div id="goal-1_2" class="lab1_2-section content-section text-content">
+                    <p><strong>Тема:</strong>КАСКАДНІ ТАБЛИЦІ СТИЛІВ. СЕЛЕКТОРИ .ІДЕНТИФІКАТОРИ. СТИЛЬОВЕ ОФОРМЛЕННЯ
+                        ТЕКСТОВИХ ЕЛЕМЕНТІВ В HTML-ДОКУМЕНТАХ.</p><br />
+                    <p><strong>Мета:</strong>придбати практичні навички роботи з селекторами: тегів, класів,
+                        ідентифікаторів; списками, різноманітними властивостями кольору і фону,
+                        оформленням текстових елементів
+                    </p>
+                    <a href="https://olha-web-code.github.io/zpi-zp41_appWEB--ChernovaOlha---2025/" style="margin-right: 10px;">Посилання на живу веб-сторінку</a>
+<a href="https://github.com/Olha-web-code/zpi-zp41_appWEB--ChernovaOlha---2025" style="margin-right: 30px;">Посилання на веб-сторінку</a><br/>
+
+<a href="https://olha-web-code.github.io/zpi-zp41_appRECORD-ChernovaOlha--MEU-2025/" style="margin-right: 10px;">Посилання на живу сторінку звітного HTML документа</a>
+<a href="https://github.com/Olha-web-code/zpi-zp41_appRECORD-ChernovaOlha--MEU-2025" style="margin-right: 30px;">Посилання на сторінку звітного HTML документа</a><br/>
+
+<a href="olha-web-code.github.io/zpi-zp41_appINDEPENDENT--ChernovaOlha----2025/" style="margin-right: 10px;">Посилання на живу сторінку з самостійними роботами</a>
+<a href="https://olha-web-code.github.io/zpi-zp41_appINDEPENDENT--ChernovaOlha----2025/">Посилання на сторінку з самостійними роботами</a>
+                </div>
+                <div id="styleConnection" class="lab1_2-section content-section text-content">
+                    <h2>Способи підключення стилів</h2>
+            
+                    <h3>1. Вбудовані стилі</h3>
+                    <p>Стилі додаються безпосередньо до HTML-елемента через атрибут <code>style</code>.</p>
+                    <pre><code>&lt;h1 style="color: green; font-size: 18px;"&gt;Текст із вбудованим стилем&lt;/h1&gt;</code></pre>
+            
+                    <h3>2. Внутрішні стилі</h3>
+                    <p>Внутрішні стилі додаються в документ за допомогою блоку <code>&lt;style&gt;</code> у секції
+                        <code>&lt;head&gt;</code>.
+                    </p>
+                    <pre><code>&lt;head&gt;
+                                    &lt;style&gt;
+                                        h1 {
+                                            color: green;
+                                            font-size: 18px;
+                                        }
+                                    &lt;/style&gt;
+                                &lt;/head&gt;
+                                &lt;body&gt;
+                                    &lt;h1&gt;Текст із внутрішнім стилем&lt;/h1&gt;
+                                &lt;/body&gt;</code></pre>
+            
+                    <h3>3. Зовнішні стилі</h3>
+                    <p>Зовнішні стилі підключаються через окремий CSS-файл за допомогою тега <code>&lt;link&gt;</code> у
+                        секції
+                        <code>&lt;head&gt;</code>. Це найпоширеніший спосіб, який дозволяє розділити HTML і CSS-код.
+                    </p>
+                    <pre><code>&lt;head&gt;
+                                    &lt;link rel="stylesheet" href="styles.css"&gt;
+                                &lt;/head&gt;
+                                &lt;body&gt;
+                                    &lt;h1&gt;Текст із зовнішнім стилем&lt;/h1&gt;
+                                &lt;/body&gt;</code></pre>
+            
+                    <h3>4. Підключення за допомогою @import</h3>
+                    <p>Правило <code>@import</code> дозволяє підключати один або більше зовнішніх CSS-файлів у головному
+                        CSS-файлі.
+                    </p>
+                    <pre><code>/* Вміст файлу main.css */
+                                @import url("styles.css");
+                                
+                                h1 {
+                                    color: black;
+                                }</code></pre>
+                </div>
+                <div id="selectors" class="lab1_2-section content-section text-content">
+                    <h2>Селектори</h2>
+                    <p>Цей фрагмент показує застосування CSS-селекторів для вибору елементів на веб-сторінці.</p>
+            
+                    <div>
+                        <h3>Селектор за тегом</h3>
+                       <p>Вибирає всі елементи з певним тегом. Наприклад, <code>div</code> вибирає всі блоки.</p> <code>&lt;div&gt;Текст блоку&lt;/div&gt;</code>
+                    </div>
+            
+                    
+                    <div>
+                        <h3>Селектор за класом</h3> <p>Вибирає всі елементи з певним класом. Наприклад, <code>.highlight</code> вибирає всі елементи з класом "highlight".</p> <code>&lt;div class="highlight"&gt;Текст&lt;/div&gt;</code>
+                    </div>
+            
+                    
+                    <div>
+                        <h3>Селектор за ідентифікатором</h3> <p>Вибирає елемент за його унікальним ідентифікатором. Наприклад, <code>#header</code> вибирає елемент з id "header".</p> <code>&lt;div id="header"&gt;Заголовок&lt;/div&gt;</code>
+                    </div>
+            
+                    
+                    <div>
+                        <h3>Селектор за атрибутом</h3> <p>Вибирає елементи, що мають певний атрибут або його значення. Наприклад, <code>[href="#"]</code> вибирає всі елементи з атрибутом href="#".</p> <code>&lt;a href="#"&gt;Посилання&lt;/a&gt;</code>
+                    </div>
+            
+                    
+                    <div>
+                        <h3>Комбінація селекторів</h3> <p>Ви можете комбінувати селектори для більш точного вибору елементів, наприклад, <code>section.highlight a</code> вибирає всі посилання всередині елементів з класом "highlight".</p> <code>&lt;section class="highlight"&gt;&lt;a href="#"&gt;Посилання&lt;/a&gt;&lt;/section&gt;</code>
+                    </div>
+                </div>
+                <div id="tagSelector" class="lab1_2-section content-section text-content">
+                    <h2>Селектор тегу</h2>
+            
+                    
+                    header, footer {
+                        background-color: #333;
+                        color: white;
+                        text-align: center;
+                        padding: 1em;
+                    }
+                            
+                                <img src="header.png"/>
+
+            
+                
+                </div>
+                <div id="classSelector" class="lab1_2-section content-section text-content">
+                    <h2>Селектор класу</h2>
+                    <pre>
+                                                    <code>
+                                            
+                                                        .section {
+                                                            margin-bottom: 1em;
+                                                            padding: 1em;
+                                                            background-color: #e9e9e9;
+                                                        }
+                                                    </code>
+                                                </pre>
+            
+                                                <img src="section.png" alt="Скріншот"/>
+            
+                    
+                </div>
+                <div id="idSelector" class="lab1_2-section content-section text-content">
+                    
+                    <pre><code>
+                        #courses-heading {
+                            margin: 0 auto;
+                          }
+                          
+                    </code></pre>
+            
+            
+                    <img src="heading.png" alt="Скріншот">
+            
+                </div>
+                <div id="otherSelectors" class="lab1_2-section content-section text-content">
+                    <h2>Інші селектори</h2>
+            
+                    <p>У цьому прикладі ми застосуємо різні типи CSS-селекторів, такі як сусідні, дочірні селектори,
+                        селектор атрибута
+                        та універсальний селектор.</p>
+            
+                    <h3>1. Сусідні селектори</h3>
+                    <p>Сусідні селектори дозволяють вибирати елементи, які йдуть безпосередньо після іншого елемента.
+                    </p>
+                    <pre><code>
+                        h1 + p {
+                            color: red;
+                        }
+                                                </code></pre>
+                    <p>У цьому прикладі цей код зробить червоним текст усіх p, які одразу слідують за h1.</p>
+            
+                    <h3>2. Дочірні селектори</h3>
+                    <p>Дочірні селектори дозволяють вибирати елементи, які є прямими нащадками іншого елемента.</p>
+                    <pre><code>
+                        nav > a {
+                            text-decoration: none;
+                        }                        
+                                                </code></pre>
+                    <p>У цьому прикладі цей код прибирає підкреслення лише у a, які є прямими дітьми nav.
+                    </p>
+            
+                    <h3>3. Селектор атрибута</h3>
+                    <p>Селектор атрибута дозволяє вибирати елементи за значенням їх атрибута.</p>
+                    <pre><code>
+                        #contact-form input:focus {
+                            border-color: #333;
+                        }
+                        
+                                                </code></pre>
+                    <p>У цьому прикладі цей селектор стилізує input, коли він у стані :focus (користувач взаємодіє з ним).
+                    </p>
+            
+                    <h3>4. Універсальний селектор</h3>
+                    <p>Універсальний селектор вибирає всі елементи на сторінці.</p>
+                    <pre><code>
+                        * {
+                            margin: 0;
+                            padding: 0;
+                        }
+                        
+                                                </code></pre>
+                    <p>Цей код скидає всі відступи (внутрішні та зовнішні) для всіх елементів.</p>
+                </div>
+                <div id="googleFonts" class="lab1_2-section content-section text-content">
+                    <h2>Шрифти Google Fonts</h2>
+                    <p>Підключення Roboto</p>
+                    <img src="font.png" alt="Підключення шрифтів Google Fonts в коді" class="screen-img " />
+                </div>
+                <div id="cssTablesBackgroundLists" class="lab1_2-section content-section text-content">
+                    <h2>CSS: Шрифти Текст Таблиці Фон CSS Просунутий</h2>
+        
+            
+                    <h3>1. Шрифти</h3>
+                    <p>Для стилізації тексту на сайті ми використовуємо шрифт <strong>Roboto</strong> та <strong>sans-serif</strong> з Google Fonts.
+                        </p>
+                    <pre><code>
+                                                &lt;link href=""https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">" rel="stylesheet"&gt;
+                                            
+                                                /* Основні стилі */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffe4b5;
+            color: #333;
+            line-height: 1.6;
         }
-    </script>    
+
+        /* Шапка */
+        header {
+            background-color: #000;
+            color: #ffa500;
+            text-align: center;
+            padding: 1.5rem 1rem;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            font-family: 'Roboto', sans-serif;
+        }
+                                                </code></pre>
+            
+                    <h3>2. Контури</h3>
+                    <p>Контури додаються до елементів за допомогою властивості <code>text-shadow</code> для тексту і
+                        <code>box-shadow</code> для контейнерів.
+                    </p>
+                    <pre><code>
+                                                h1 {
+                                                    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+                                                }
+                                            
+                                                .content-section {
+                                                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                                                }
+                                                </code></pre>
+            
+                    <h3>3. Фон</h3>
+                    <p>Фон для елементів може бути однотонним або градієнтним. Ось приклад однотонного фону:
+                    </p>
+                    <pre><code>
+                        body {
+                            background-color: #87CEEB; /* Світло-блакитний фон */
+                            margin: 0;
+                            padding: 0;
+                        }
+                        
+                                                </code></pre>
+            
+                    <h3>4. Колір тексту</h3>
+                    <p>Для зміни кольору тексту використовуються властивості <code>color</code>.
+                        Приклад:
+                    </p>
+                    <pre><code>
+                        body {
+                            color: #333;
+                        }
+                        
+                        header {
+                            color: #ffa500;
+                        }
+                        
+                        nav a {
+                            color: #ffa500;
+                        }
+                        
+                                                </code></pre>
+            
+                    <h3>5. CSS-властивості для таблиць</h3>
+                    <p>Таблиці можна стилізувати за допомогою CSS, додаючи контури, відступи та змінюючи кольори фону.
+                    </p>
+                    <pre><code>
+                        table {
+                            width: 100%;
+                            border-collapse: collapse;
+                            margin: 1rem 0;
+                        }
+                        
+                        table th, table td {
+                            border: 1px solid #ddd;
+                            padding: 0.8rem;
+                            text-align: center;
+                        }
+                        
+                        table th {
+                            background-color: #ffa500;
+                            color: #000;
+                        }
+                        
+                        table tr:nth-child(even) {
+                            background-color: #f9f9f9;
+                        }
+                        
+                        table tr:hover {
+                            background-color: #f1f1f1;
+                        }                                            
+                                                
+                                                </code></pre>
+            
+            
+            
+                </div>
+                <div id="cssAdvanced" class="lab1_2-section content-section text-content">
+                    <h3>6. CSS Просунутий</h3>
+                    <p>Просунуте використання CSS включає застосування анімацій, псевдокласів та псевдоелементів. Ось
+                        приклад анімації:
+                        </p>
+                    <pre><code>
+                        /* Основний стиль кнопки */
+                        .animated-button {
+                            background-color: #ffa500;
+                            color: #fff;
+                            padding: 10px 20px;
+                            font-size: 16px;
+                            border: none;
+                            border-radius: 5px;
+                            cursor: pointer;
+                            transition: transform 0.3s ease, background-color 0.3s ease;
+                        }
+                
+                        /* Анімація при наведенні */
+                        .animated-button:hover {
+                            background-color: #ff5722; /* Зміна кольору */
+                            transform: scale(1.1); /* Збільшення */
+                        }
+                
+                        /* Додатковий ефект натискання */
+                        .animated-button:active {
+                            transform: scale(0.95); /* Зменшення при натисканні */
+                        }
+                                </code></pre>
+            
+                   
+                </div>
+                <div id="conclusions-1_2" class="lab1_2-section content-section text-content">
+                    <h2>Висновки</h2>
+                    <p>Лабораторна робота дозволила набратися практичного досвіду у верстці веб-сторінок, зрозуміти особливості використання різних типів макетів, таких як таблиці та блоки, а також оцінити переваги і гнучкість застосування технології Flexbox для створення сучасних веб-додатків.</p> 
+                </div>
+            </div>
+            <!-- Лабораторна робота 2_1 -->
+            <div id="lab2" class="content-section">
+                <div class="sidebar">
+                    <button onclick="showSection('goal-2', 'lab2')">Тема, мета, місце розташування сайту та
+                        звіту</button>
+                    <button onclick="showSection('task1', 'lab2')">Завдання №1.Зовнішній вигляд макету та його особливості.</br></button>
+                    <button onclick="showSection('task2', 'lab2')">Завдання №2</button>
+                    <button onclick="showSection('fixedTableLayout', 'lab2')">Фіксована таблична верстка</button>
+                    <button onclick="showSection('fluidTableLayout', 'lab2')">Гумова таблична верстка</button>
+                    <button onclick="showSection('task3Flexbox', 'lab2')">Завдання №3 FLEXBOX</button>
+                    <button onclick="showSection('flexboxScreenshot', 'lab2')">Скріншот сторінки (Flexbox)</button>
+                    <button onclick="showSection('flexboxHTMLCode', 'lab2')">HTML-код та CSS (Flexbox)</button>
+                    <button onclick="showSection('conclusions-2', 'lab2')">Висновки</button>
+                </div>
+                <div id="goal-2" class="lab2-section content-section text-content">
+                    <p><strong>Тема:</strong>ВЕРСТКА HTML-ДОКУМЕНТУ. БЛОКОВА ВЕРСТКА. ВЕРСТКА ЗАСОБАМИ CSS та FLEXBOX.
+                    </p><br />
+                    <p><strong>Мета:</strong></br>⎯ придбати практичні навички роботи верстки сторінок засобами CSS,
+                        верстки на основі
+                        плаваючих елементів, з’ясувати
+                        переваги та недоліки типів макетів веб-сторінок</br>
+                        ⎯ придбати практичні навички роботи верстки сторінок засобами CSS та FLEXBOX
+                    </p>
+                    <a href="https://olha-web-code.github.io/zpi-zp41_appWEB--ChernovaOlha---2025/" style="margin-right: 10px;">Посилання на живу веб-сторінку</a>
+                    <a href="https://github.com/Olha-web-code/zpi-zp41_appWEB--ChernovaOlha---2025" style="margin-right: 30px;">Посилання на веб-сторінку</a><br/>
+                    
+                    <a href="https://olha-web-code.github.io/zpi-zp41_appRECORD-ChernovaOlha--MEU-2025/" style="margin-right: 10px;">Посилання на живу сторінку звітного HTML документа</a>
+                    <a href="https://github.com/Olha-web-code/zpi-zp41_appRECORD-ChernovaOlha--MEU-2025" style="margin-right: 30px;">Посилання на сторінку звітного HTML документа</a><br/>
+                    
+                    <a href="olha-web-code.github.io/zpi-zp41_appINDEPENDENT--ChernovaOlha----2025/" style="margin-right: 10px;">Посилання на живу сторінку з самостійними роботами</a>
+                    <a href="https://olha-web-code.github.io/zpi-zp41_appINDEPENDENT--ChernovaOlha----2025/">Посилання на сторінку з самостійними роботами</a>
+                </div>
+                <div id="task1" class="lab2-section content-section text-content">
+                    <h2>Зовнішній вигляд макету та його особливості</h2>
+
+                    <img src="WOWDev.png" alt="website screenshot" width=800px/>
+                    <img src="WOWDev_1.png" width=800px alt="website screenshot"/>
+            
+                    <h3>1. Гумова верстка</h3>
+                    <pre><code>
+                    /* Приклад гумової верстки */
+                    main {
+                        padding: 2rem;
+                        max-width: 1200px;
+                        margin: 0 auto;
+                    }
+                    
+                    </code></pre>
+                    <h3>2. Використання Flexbox</h3>
+                    <pre><code>
+                        .container {
+                            display: flex;
+                            flex-wrap: nowrap;
+                            width: 100%;
+                            min-height: calc(100vh - 4em); 
+                        }
+                </code></pre>
+              
+            </div>
+            <div id="task2" class="lab2-section content-section text-content">
+                <p>Завдання 2.Варіант 2.Засобами HTML та CSS виконати Завдання №2, в саме: створити окремі веб-сторінки, а саме:
+                    o Фіксована таблична верстка
+                    o Гумова таблична верстка
+                </p>
+            </div>
+            <div id="fixedTableLayout" class="lab2-section content-section text-content">
+                <h3>1.1 Фіксована таблична верстка</h3>
+                <img src="fixed_table_layout.png" alt="Screen">
+    </div>
+    <div id="fluidTableLayout" class="lab2-section content-section text-content">
+        <h3>1.2 Гумова таблична верстка</h3>
+        <img src="table_layout.png" alt="Screen">
+    </div>
+    
+    <div id="fluidBlockLayout" class="lab2-section content-section text-content">
+        <h3>2.2 Гумова блокова верстка</h3>
+        <pre>
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="uk"&gt;
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Гумова блокова верстка&lt;/title&gt;
+                &lt;style&gt;
+                    .container {
+                        width: 70%; /* Ширина контейнера адаптується до екрану */
+                        display: flex;
+                        justify-content: space-between;
+                        flex-wrap: wrap;
+                    }
+                    .box {
+                        width: 20%;
+                        height: 200px;
+                        background-color: #107a90;
+                        text-align: center;
+                        padding: 20px;
+                        box-sizing: border-box;
+                        margin-bottom: 20px;
+                    }
+                &lt;/style&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;h1&gt;Гумові блоки&lt;/h1&gt;
+                &lt;div class="container"&gt;
+                    &lt;div class="box"&gt;Блок 1&lt;/div&gt;
+                    &lt;div class="box"&gt;Блок 2&lt;/div&gt;
+                    &lt;div class="box"&gt;Блок 3&lt;/div&gt;
+                    &lt;div class="box"&gt;Блок 4&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+            
+                        </pre>
+                    </div>
+                    <div id="mytask2" class="lab2-section content-section text-content">
+                        <h3>Завдання 2. Варіант 3</h3>
+                        <pre><code>&lt;!DOCTYPE html&gt;
+                            &lt;html lang="uk"&gt;
+                            
+                            &lt;head&gt;
+                                &lt;meta charset="UTF-8"&gt;
+                                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                                &lt;title&gt;Макет: Варіант 2&lt;/title&gt;
+                                &lt;style&gt;
+                                    body {
+                                        margin: 0;
+                                        font-family: Arial, sans-serif;
+                                    }
+                            
+                                    .container {
+                                        width: 100%;
+                                        max-width: 1200px;
+                                        margin: 0 auto;
+                                        overflow: hidden; /* Забезпечує коректне відображення плаваючих блоків */
+                                    }
+                            
+                                    /* Верхній блок */
+                                    .header {
+                                        background-color: #ffc107; /* Жовтий фон */
+                                        height: 100px;
+                                        line-height: 100px; /* Вертикальне вирівнювання тексту */
+                                        text-align: center; /* Центрування тексту */
+                                        font-size: 24px;
+                                        font-weight: bold;
+                                    }
+                            
+                                    /* Ліва панель */
+                                    .left-sidebar {
+                                        background-color: #007bff; /* Синій фон */
+                                        width: 20%; /* Ширина 20% від контейнера */
+                                        float: left; /* Використання float для розташування */
+                                        height: 400px;
+                                        color: white;
+                                        text-align: center;
+                                        padding-top: 20px; /* Відступ зверху для тексту */
+                                    }
+                            
+                                    /* Центральний блок */
+                                    .main-content {
+                                        background-color: #ffffff; /* Білий фон */
+                                        width: 40%; /* Ширина 40% від контейнера */
+                                        float: left; /* Використання float для розташування */
+                                        height: auto; /* Висота залежить від вмісту */
+                                        border: 1px solid #ddd; /* Сіра рамка */
+                                        box-sizing: border-box;
+                                        padding: 20px;
+                                        position: relative;
+                                    }
+                            
+                                    /* Права панель */
+                                    .right-sidebar {
+                                        background-color: #007bff; /* Синій фон */
+                                        width: 20%; /* Ширина 20% від контейнера */
+                                        float: left; /* Використання float для розташування */
+                                        height: 400px;
+                                        color: white;
+                                        text-align: center;
+                                        padding-top: 20px; /* Відступ зверху для тексту */
+                                    }
+                            
+                                    /* Нижній блок */
+                                    .footer {
+                                        background-color: #ffc107; /* Жовтий фон */
+                                        height: 100px;
+                                        clear: both; /* Забезпечує, що цей блок відображається під усіма float */
+                                        text-align: center; /* Центрування тексту */
+                                        line-height: 100px;
+                                        font-size: 20px;
+                                        font-weight: bold;
+                                    }
+                            
+                                    /* Червоний блок у Центрі */
+                                    .top-bar {
+                                        background-color: #dc3545; /* Червоний фон */
+                                        height: 50px;
+                                        width: 90%; /* Займає 90% ширини центрального блоку */
+                                        margin: 0 auto;
+                                        text-align: center; /* Центрування тексту */
+                                        color: white;
+                                        line-height: 50px;
+                                        margin-bottom: 20px; /* Відступ знизу */
+                                    }
+                            
+                                    /* Червоний блок під центральним контентом */
+                                    .bottom-bar {
+                                        background-color: #dc3545; /* Червоний фон */
+                                        height: 50px;
+                                        width: 90%; /* Займає 90% ширини центрального блоку */
+                                        margin: 20px ; /* Відступ знизу */
+                                        text-align: center; /* Центрування тексту */
+                                        color: white;
+                                        line-height: 50px;
+                                    }
+                                &lt;/style&gt;
+                            &lt;/head&gt;
+                            
+                            &lt;body&gt;
+                                &lt;div class="container"&gt;
+                                    &lt;!-- Верхній блок --&gt;
+                                    &lt;div class="header"&gt;1. Верхній блок: заголовок сторінки&lt;/div&gt;
+                            
+                                    &lt;!-- Ліва панель --&gt;
+                                    &lt;div class="left-sidebar"&gt;2. Ліва панель: додаткове меню&lt;/div&gt;
+                            
+                                    &lt;!-- Центральний блок --&gt;
+                                    &lt;div class="main-content"&gt;
+                                        &lt;div class="top-bar"&gt;Червоний блок: важлива інформація&lt;/div&gt;
+                                        3. Центральний блок: основний контент сторінки
+                                       
+                                        &lt;div class="bottom-bar"&gt;Червоний блок внизу&lt;/div&gt;
+                                    &lt;/div&gt;
+                            
+                                    &lt;!-- Права панель --&gt;
+                                    &lt;div class="right-sidebar"&gt;4. Права панель: додаткові функції&lt;/div&gt;
+                            
+                                    &lt;!-- Нижній блок --&gt;
+                                    &lt;div class="footer"&gt;5. Нижній блок: підвал сторінки&lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/body&gt;
+                            
+                            &lt;/html&gt;
+                        </code></pre>
+                        <h1>Підсумки</h1>
+
+
+
+<!-- Плаваючі блоки -->
+<div class="conclusion-section">
+    <div class="block-container">
+        <h3>Переваги таблиць</h3>
+        <ul>
+            <li>Легкість у використанні для табличних даних</li>
+            <li>Ясна структура та форматування</li>
+            <li>Широка підтримка у всіх браузерах</li>
+        </ul>
+    </div>
+    <div class="block-container">
+        <h3>Переваги блоків</h3>
+        <ul>
+            <li>Гнучкість у створенні дизайнів</li>
+            <li>Адаптація до різних пристроїв</li>
+            <li>Сучасний підхід у веб-розробці</li>
+        </ul>
+    </div>
+</div>
+</div>
+<div id="task3Flexbox" class="lab2-section content-section text-content">
+    <p>Завдання 3. Варіант 2. Виконати Завдання, використовуючи засоби CSS та FLEXBOX</p>
+</div>
+<div id="flexboxScreenshot" class="lab2-section content-section text-content">
+    <img src="flexbox.png" alt="Скріншот сторінки" class="screen-img">
+</div>
+<div id="flexboxHTMLCode" class="lab2-section content-section text-content">
+    <pre><code>
+        &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Flexbox Layout Example&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        header, footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+        .container {
+            display: flex;
+            flex-wrap: nowrap;
+            width: 100%;
+            min-height: calc(100vh - 4em); 
+        }
+        .sidebar {
+            width: 20%;
+            background-color: #f4f4f4;
+            padding: 1em;
+            box-sizing: border-box;
+        }
+        .content {
+            width: 80%;
+            padding: 1em;
+            box-sizing: border-box;
+        }
+        .section {
+            margin-bottom: 1em;
+            padding: 1em;
+            background-color: #e9e9e9;
+        }
+        .horizontal-sections {
+            display: flex;
+            gap: 1em;
+        }
+        .horizontal-sections .section {
+            flex: 1;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Website Header&lt;/h1&gt;
+    &lt;/header&gt;
+    &lt;div class="container"&gt;
+        &lt;aside class="sidebar"&gt;
+            &lt;h2&gt;Sidebar&lt;/h2&gt;
+            &lt;p&gt;Navigation links or additional info here.&lt;/p&gt;
+        &lt;/aside&gt;
+        &lt;main class="content"&gt;
+            &lt;div class="section"&gt;
+                &lt;h2&gt;Section Header&lt;/h2&gt;
+                &lt;p&gt;This is the header section content.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="horizontal-sections"&gt;
+                &lt;div class="section"&gt;
+                    &lt;h2&gt;Section 1&lt;/h2&gt;
+                    &lt;p&gt;This is the first section content.&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class="section"&gt;
+                    &lt;h2&gt;Section 2&lt;/h2&gt;
+                    &lt;p&gt;This is the second section content.&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/main&gt;
+    &lt;/div&gt;
+    &lt;footer&gt;
+        &lt;p&gt;Website Footer&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+</code></pre>
+</div>
+
+    <div id="conclusions-2" class="lab2-section content-section text-content">
+        <h2>Підсумки</h2>
+        <p>
+            Створення цього вебсайту за допомогою <strong>HTML</strong> та <strong>CSS</strong> ілюструє основні
+            принципи та
+            техніки сучасної веб-розробки. Головною складовою є застосування
+            <em>семантичної розмітки HTML</em> для організації контенту та <em>адаптивного стилювання CSS</em>, що
+            дозволяє
+            розробити зручний, естетично привабливий і ефективний інтерфейс.
+        </p>
+        <ul>
+            <li>Застосування <strong>Flexbox</strong> для гнучкого розміщення елементів, що гарантує коректне
+                відображення на різних пристроях.</li>
+            <li>Інтеграція стильного дизайну з <strong>напівпрозорими елементами</strong>, що додають візуального об'єму.</li>
+            <li>Організація коду з урахуванням принципів <strong>DRY (Don't Repeat Yourself)</strong> для зручності
+                обслуговування та масштабування.</li>
+            <li>Розподіл стилів на загальні та специфічні для кожної частини сайту для поліпшення читабельності та повторного
+                використання.</li>
+            <li>Створення випадаючих меню для покращення навігації.</li>
+        </ul>
+        <p>Сайт відповідає основним принципам веб-розробки, серед яких <em>адаптивність</em>, <em>доступність</em>,
+            <em>зручність для користувачів</em>, і може слугувати основою для подальших удосконалень.
+        </p>
+        <h2>Контрольні питання</h2>
+        <h2>1. Три базові концепції верстки за допомогою CSS</h2>
+        <p><strong>Блоки (Box Model):</strong> Усі елементи веб-сторінки можна розглядати як блоки, що складаються з контенту, внутрішніх відступів (padding), рамок (border) і зовнішніх відступів (margin).</p>
+        <p><strong>Позиціонування (Positioning):</strong> Позиціонування визначає, де елемент має бути розташований на сторінці, за допомогою різних методів: static (за замовчуванням), relative, absolute, fixed, sticky.</p>
+        <p><strong>Флексбокси та гріди (Flexbox і Grid):</strong> Ці технології дозволяють створювати складні макети, використовуючи гнучкі контейнери і сітки для управління елементами на сторінці.</p>
+    
+        <h2>2. Фіксований тип макетів веб-сторінок</h2>
+        <p><strong>Визначення:</strong> Це тип макету, де елементи мають фіксовані розміри, і їх положення на сторінці не залежить від розміру вікна браузера чи пристрою.</p>
+        <p><strong>Переваги:</strong> Легко реалізувати, елементи завжди мають однаковий вигляд, не змінюються при зміні розміру вікна.</p>
+        <p><strong>Недоліки:</strong> Не підходить для мобільних пристроїв, оскільки не адаптується до різних розмірів екранів.</p>
+    
+        <h2>3. Гумовий тип макетів веб-сторінок</h2>
+        <p><strong>Визначення:</strong> Макет, де елементи використовують відсоткові значення для ширини чи висоти, що дозволяє їм змінюватися в залежності від розміру екрану.</p>
+        <p><strong>Переваги:</strong> Макет адаптується до різних екранів, зручний для використання на мобільних пристроях.</p>
+        <p><strong>Недоліки:</strong> Може бути складно передбачити точний вигляд елементів, особливо якщо контент має різну довжину.</p>
+    
+        <h2>4. Еластичний тип макетів веб-сторінок</h2>
+        <p><strong>Визначення:</strong> Це макет, де елементи використовують одиниці вимірювання типу em або rem, які змінюються залежно від розміру шрифтів.</p>
+        <p><strong>Переваги:</strong> Підлаштовується під зміни шрифтів та інших налаштувань користувача, забезпечуючи більшу гнучкість.</p>
+        <p><strong>Недоліки:</strong> Може бути важким у налаштуванні, особливо якщо потрібно досягти точності в макеті.</p>
+    
+        <h2>5. Адаптивний тип макетів веб-сторінок</h2>
+        <p><strong>Визначення:</strong> Макет, що змінює свою структуру залежно від розміру екрана за допомогою медіа-запитів.</p>
+        <p><strong>Переваги:</strong> Створює оптимальний вигляд на різних пристроях, зокрема на мобільних телефонах і планшетах.</p>
+        <p><strong>Недоліки:</strong> Потребує більше часу на налаштування та тестування для різних розмірів екранів.</p>
+    
+        <h2>6. Комбіновані типи макетів веб-сторінок</h2>
+        <p><strong>Визначення:</strong> Комбінація кількох типів макетів (фіксованих, гумових, еластичних та адаптивних), що дозволяє досягти більшої гнучкості та контролю.</p>
+        <p><strong>Переваги:</strong> Дозволяє використовувати різні підходи для різних частин сторінки, забезпечуючи гарний вигляд на різних пристроях.</p>
+        <p><strong>Недоліки:</strong> Складність у реалізації та обслуговуванні, може вимагати великої кількості тестування.</p>
+    
+        <h2>7. Як створити веб-сторінку за допомогою таблиці</h2>
+        <p>Щоб створити веб-сторінку за допомогою таблиць, ви можете використати HTML для визначення таблиці та її рядків і клітинок. Кожен рядок створюється за допомогою елементів <code>&lt;tr&gt;</code>, а кожна клітинка — за допомогою елементів <code>&lt;td&gt;</code>. CSS використовується для надання таблиці стилів, таких як ширина, висота, рамки та відступи. Цей підхід часто використовується для простих макетів.</p>
+    
+        <h2>8. Як створити веб-сторінку за допомогою плаваючих блоків</h2>
+        <p>Для створення макету за допомогою плаваючих блоків використовуються властивості CSS <code>float</code>. Кожен блок з плаваючим вмістом розміщується в залежності від інших елементів. Це дозволяє створювати сторінки, де елементи "плавають" один поряд з іншим, наприклад, текст може оточувати зображення чи інші елементи. Після того як елементи "плавають", часто використовують властивість <code>clear</code> для уникнення накладення елементів.</p>
+    </div>
+</div>
+            <!-- Лабораторна робота 2_2 -->
+            <div id="lab2_2" class="content-section">
+                <div class="sidebar">
+                    <button onclick="showSection('goal2_2', 'lab2_2')">Тема, мета, місце розташування сайту та звіту</button>
+                    <button onclick="showSection('desktop', 'lab2_2')">Десктопна версія</button>
+                    <button onclick="showSection('tablet', 'lab2_2')">Планшетна версія</button>
+                    <button onclick="showSection('mobile', 'lab2_2')">Мобільна версія</button>
+                    <button onclick="showSection('approach', 'lab2_2')">Пояснення підходу</button>
+                    <button onclick="showSection('logic-operators', 'lab2_2')">Логічні оператори</button>
+                    <button onclick="showSection('conclusions-2_2', 'lab2_2')">Висновки</button>
+                </div>
+            
+                <!-- Тема та завдання -->
+                <div id="goal2_2" class="lab2_2-section content-section text-content">
+                    <p><strong>Тема:</strong>АДАПТИВНА ВЕРСТКА. МЕДІА-ЗАПИТИ. МЕТАТЕГ VIEWPORT.
+                    </p><br />
+                    <p><strong>Мета:</strong>Адаптивна верстка. Медіа-запити. Медіа-типи. Медіа-функції.Метатег viewport. Інструменти розробника. Стратегія Mobile
+                    First.<br />
+
+                    <a href="https://olha-web-code.github.io/zpi-zp41_appWEB--ChernovaOlha---2025/" style="margin-right: 10px;">Посилання на живу веб-сторінку</a>
+                    <a href="https://github.com/Olha-web-code/zpi-zp41_appWEB--ChernovaOlha---2025" style="margin-right: 30px;">Посилання на веб-сторінку</a><br/>
+                    
+                    <a href="https://olha-web-code.github.io/zpi-zp41_appRECORD-ChernovaOlha--MEU-2025/" style="margin-right: 10px;">Посилання на живу сторінку звітного HTML документа</a>
+                    <a href="https://github.com/Olha-web-code/zpi-zp41_appRECORD-ChernovaOlha--MEU-2025" style="margin-right: 30px;">Посилання на сторінку звітного HTML документа</a><br/>
+                    
+                    <a href="olha-web-code.github.io/zpi-zp41_appINDEPENDENT--ChernovaOlha----2025/" style="margin-right: 10px;">Посилання на живу сторінку з самостійними роботами</a>
+                    <a href="https://olha-web-code.github.io/zpi-zp41_appINDEPENDENT--ChernovaOlha----2025/">Посилання на сторінку з самостійними роботами</a>
+                    
+                    
+                    </a>
+                </div>                  
+                 <!-- Десктопна версія -->
+                 <div id="desktop" class="lab2_2-section content-section text-content">
+                    <h4>Десктопна версія</h4>
+                    <p>Версія для десктопних екранів адаптована для пристроїв із шириною дисплея від <strong>1200px</strong>.</p>
+<p>Для таких екранів передбачено розширений макет із широким центральним блоком, збільшеними шрифтами та комфортним відступом між елементами для кращої читабельності.</p>
+<pre><code>
+
+@media (min-width: 1200px) {
+    .course-list {
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+        gap: 20px;
+      }
+      
+      .course-card {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 200px;
+        text-align: center;
+        padding: 10px;
+      }
+      
+      .course-card img {
+        width: 100%;
+        border-radius: 10px 10px 0 0;
+      }
+}
+</code></pre>
+                </div>          
+                 <!-- Планшетна версія -->
+                 <div id="tablet" class="lab2_2-section content-section text-content">
+                    <h4>Планшетна версія</h4> 
+<p>Ця версія адаптована для екранів із шириною <strong>від 768px до 1200px</strong>.</p>
+<pre><code>
+
+@media (min-width: 768px) and (max-width: 1200px) {
+    nav {
+        width: 60px;
+      }
+    
+      .menu {
+        gap: 60px;
+      }
+    
+      .tab {
+        padding: 8px 16px;
+        font-size: 14px;
+      }
+    
+      .course-card {
+        width: 180px;
+      }
+    
+      table {
+        width: 70%;
+      }
+    
+      .footer-container {
+        font-size: 14px;
+      }
+}
+</code></pre>
+</div>
+<!-- Мобільна версія -->
+ <div id="mobile" class="lab2_2-section content-section text-content">
+    <h4>Мобільна версія</h4>
+<p>Ця версія створена для пристроїв із шириною екрана <strong>менше 768px</strong>.</p>
+<p>Головні особливості: спрощене компонування, вертикальне розташування блоків та приховування другорядної інформації для кращої зручності користувача.</p>
+<pre><code>
+
+@media (max-width: 768px) {
+    nav {
+        width: 50px;
+        padding: 10px 0;
+      }
+    
+      .menu {
+        gap: 40px;
+      }
+    
+      header {
+        flex-direction: column;
+        padding: 10px;
+      }
+    
+      .tabs-list {
+        flex-direction: column;
+        gap: 10px;
+      }
+    
+      .course-list {
+        flex-direction: column;
+        gap: 20px;
+      }
+    
+      .course-card {
+        width: 100%;
+      }
+    
+      table {
+        width: 90%;
+        font-size: 12px;
+      }
+    
+      .footer-container {
+        padding: 10px;
+        font-size: 12px;
+      }
+    
+      .subscribe-button {
+        width: 100%;
+      }
+}
+</code></pre>
+</div>
+ <!-- Пояснення підходу -->
+ <div id="approach" class="lab2_2-section content-section text-content">
+    <h4>Опис методології</h4>
+    <p>Для реалізації адаптивної верстки застосовані ключові точки розриву на ширині <strong>768px</strong> та <strong>1200px</strong>. Для кожної категорії пристроїв були створені унікальні стилі, що гарантують зручність використання. Основні принципи:</p>
+    <ul>
+        <li>Збалансовані відступи та компонування для комп'ютерів та планшетів.</li>
+        <li>Вертикальне розташування для мобільних пристроїв.</li>
+    </ul>
+</div>
+ <!-- Логічні оператори -->
+ <div id="logic-operators" class="lab2_2-section content-section text-content">
+    <h4>Логічні оператори</h4>
+    <p>Під час розробки стилів застосовувались логічні оператори <code>and</code>, <code>not</code> у медіа-запитах для точного визначення критеріїв:</p>
+    <pre><code>
+        /* Приклад використання логічних операторів */
+        @media not all and (min-width: 600px) {
+            header {
+                background-color: #e0e0e0;
+            }
+        }
+    </code></pre>
+</div>
+ <!-- Оформлення звіту -->
+ <div id="conclusions-2_2" class="lab2_2-section content-section text-content">
+    <h2>Підсумки до лабораторної роботи</h2>
+    <ol>
+        <li>
+            <strong>Створення адаптивного дизайну:</strong>
+            <p>У межах лабораторної роботи було розроблено адаптивний інтерфейс для трьох основних категорій пристроїв: 
+                комп'ютерів, планшетів і смартфонів. Завдяки використанню медіа-запитів вдалося впровадити окремі стилі для кожного типу пристрою, забезпечуючи комфортний досвід для користувачів.</p>
+        </li>
+        <li>
+            <strong>Версія для десктопів:</strong>
+            <p>Для пристроїв із шириною екрану понад 1200px були реалізовані стилі, що враховують просторе компонування, оптимальну
+                ширину блоків і відповідний розмір шрифтів для зручного сприйняття інформації.</p>
+        </li>
+        <li>
+            <strong>Версія для планшетів:</strong>
+            <p>Для екранів із шириною від 768px до 1200px були розроблені стилі, які забезпечують компактне розташування елементів і зручну навігацію. Меню та контент адаптовані для легкого доступу.</p>
+        </li>
+        <li>
+            <strong>Мобільна версія:</strong>
+            <p>Для пристроїв із шириною екрану до 768px був використаний мінімалістичний підхід до дизайну, видалено другорядні блоки та спрощено структуру. Це сприяє швидкому завантаженню та легкості взаємодії.</p>
+        </li>
+        <li>
+            <strong>Застосування логічних операторів:</strong>
+            <p>Під час налаштування адаптивних стилів використовувались логічні оператори <code>and</code>, <code>not</code> для чіткішого визначення умов медіа-запитів. Це дозволило забезпечити правильну адаптацію під різні типи екранів.</p>
+        </li>
+        <li>
+            <strong>Загальний висновок:</strong>
+            <p>Отримані знання та вміння дозволяють створювати адаптивні веб-сторінки, які відповідають сучасним вимогам. Використання медіа-запитів і гнучкого підходу до дизайну забезпечує зручність для користувачів різних пристроїв.</p>
+        </li>
+    </ol>
+</div>
+</div>
+
+            
+           <!-- Лабораторна робота 3 -->
+           <div id="lab3" class="content-section">
+            <div class="sidebar">
+                <button onclick="showSection('goal3', 'lab3')">Тема, мета, місце розташування сайту та звіту</button>
+                <button onclick="showSection('task-1', 'lab3')">Завдання №1</button>
+                <button onclick="showSection('task-2', 'lab3')">Завдання №2</button>
+                <button onclick="showSection('task-3', 'lab3')">Завдання №3</button>
+                <button onclick="showSection('task-4', 'lab3')">Завдання №4</button>
+                <button onclick="showSection('task-5', 'lab3')">Завдання №5</button>
+                <button onclick="showSection('conclusions-3', 'lab3')">Висновки</button>
+            </div>
+            <div id="goal3" class="lab3-section content-section text-content">
+                <p><strong>Тема:</strong>ФУНКЦІОНАЛЬНЕ ЗАСТОСУВАННЯ JAVASCRIPT У HTML-ДОКУМЕНТІ.
+                ВИКОРИСТАННЯ МАСИВІВ У JS-СЦЕНАРІЯХ. РЕАЛІЗАЦІЯ ПРОГРАМ ЗАСОВАМИ МОВИ JAVASCRIPT
+
+                </p><br />
+                <p><strong>Мета:</strong>придбати практичні навички роботи з конструкціями мови JS, масивами та фугкціями у js-сценаріях. Реалізація програм
+                засовами мови JAVASCRIPT<br />
+            
+                <a href="https://olha-web-code.github.io/zpi-zp41_appWEB--ChernovaOlha---2025/" style="margin-right: 10px;">Посилання на живу веб-сторінку</a>
+                    <a href="https://github.com/Olha-web-code/zpi-zp41_appWEB--ChernovaOlha---2025" style="margin-right: 30px;">Посилання на веб-сторінку</a><br/>
+                    
+                    <a href="https://olha-web-code.github.io/zpi-zp41_appRECORD-ChernovaOlha--MEU-2025/" style="margin-right: 10px;">Посилання на живу сторінку звітного HTML документа</a>
+                    <a href="https://github.com/Olha-web-code/zpi-zp41_appRECORD-ChernovaOlha--MEU-2025" style="margin-right: 30px;">Посилання на сторінку звітного HTML документа</a><br/>
+                    
+                    <a href="olha-web-code.github.io/zpi-zp41_appINDEPENDENT--ChernovaOlha----2025/" style="margin-right: 10px;">Посилання на живу сторінку з самостійними роботами</a>
+                    <a href="https://olha-web-code.github.io/zpi-zp41_appINDEPENDENT--ChernovaOlha----2025/">Посилання на сторінку з самостійними роботами</a><br/>
+            </div> <div id="task-1" class="lab3-section content-section text-content">
+                <p>Завдання №1.</p>
+                <pre><code>
+                    &lt;script&gt;
+                    function getShippingMessage (country,price,deliveryFee){
+
+                        const totalPrice = price + deliveryFee;
+                    
+                        return `Shipping to ${country} will cost
+                        ${totalPrice} credits`;
+                    }
+                    
+                    console.log(getShippingMessage("Italy", 30, 5));
+                    
+                    
+&lt;/script&gt;
+
+                </code></pre>
+                <img src="Screenshot.png" alt="Скріншот консолі" class="screen-img">
+                
+            </div><div id="task-2" class="lab3-section content-section text-content">
+                <p>Завдання №2</p>
+                <pre><code>
+                    &lt;script&gt;
+                    function makeTransaction(quantity, pricePerDroid, customerCredits){
+                        const totalPrice = pricePerDroid * quantity;
+                        if (totalPrice > customerCredits) {
+                            return 'Insufficient funds!'
+                        } else {
+                            return `You ordered ${quantity} droids worth ${totalPrice} credits!`
+                        }
+                    }
+                    
+                    console.log(makeTransaction(5,1000,10000));
+                    
+                    console.log(makeTransaction(3,1000,1000));
+                    </pre>
+                </code></pre>
+                <img src="Screenshot_1.png" alt="Скріншот консолі" class="screen-img">
+            </div> <div id="task-3" class="lab3-section content-section text-content">
+                <p>Завдання</p>
+                <pre><code>
+                    &lt;script&gt;
+                    function makeArray(firstArray, secondArray, maxLength){
+                        const newArray = firstArray.concat(secondArray);
+                        if (newArray.length>maxLength) {
+                            return newArray.slice(0, maxLength);
+                        } else {
+                            return newArray;
+                        }
+                    }
+                    
+                    console.log(makeArray(["apple", "banana"], ["orange", "kiwi"], 4));
+                    
+                    console.log(makeArray(["apple", "banana"], ["orange", "kiwi"], 2));
+&lt;/script&gt;
+
+                </code></pre>
+                <img src="Screenshot_2.png" alt="Скріншот консолі" class="screen-img">
+            </div><div id="task-4" class="lab3-section content-section text-content">
+                <p>Завдання №4</p>
+                <p>Підпункт 1</p>
+                <pre><code>
+                    &lt;script&gt;
+
+                    // Task 1: Create a one-dimensional array and perform operations
+
+                    // Function to create the array based on user input and perform operations
+                    function performOperations() {
+                        let length = parseInt(prompt("Enter the length of the array:"));
+                        let arr = [];
+                        
+                        // Populate the array with random numbers (for the sake of example)
+                        for (let i = 0; i < length; i++) {
+                          arr.push(Math.floor(Math.random() * 100)); // Random number between 0 and 99
+                        }
+                        
+                        console.log("Original Array:", arr);
+                      
+                        // Sum of elements at even indices
+                        const sumEvenIndices = arr.filter((_, index) => index % 2 === 0).reduce((sum, value) => sum + value, 0);
+                        
+                        // Find max element and its index
+                        let maxElement = Math.max(...arr);
+                        let maxIndex = arr.indexOf(maxElement);
+                        
+                        // Find min element and its index among elements with odd indices
+                        let oddIndexedElements = arr.filter((_, index) => index % 2 !== 0);
+                        let minOddIndexedElement = Math.min(...oddIndexedElements);
+                        let minOddIndexedIndex = arr.indexOf(minOddIndexedElement);
+                        
+                        console.log("Sum of elements with even indices:", sumEvenIndices);
+                        console.log("Max element:", maxElement, "at index", maxIndex);
+                        console.log("Min element with odd indices:", minOddIndexedElement, "at index", minOddIndexedIndex);
+                      }
+                      
+                      // Task 2: Sort the array and print original and sorted arrays
+                      
+                      // Function to sort the array
+                      function sortArray() {
+                        let arr = [45, 12, 78, 34, 89, 23, 56]; // Example array
+                        
+                        // Print original array
+                        console.log("Original Array:", arr);
+                      
+                        // Sort the array in ascending order
+                        let sortedArr = [...arr].sort((a, b) => a - b); // Non-destructive sort
+                        
+                        // Print sorted array
+                        console.log("Sorted Array:", sortedArr);
+                      }
+                      
+                      // Run the functions
+                      performOperations(); // Call the function for Task 1
+                      sortArray(); // Call the function for Task 2
+                    
+&lt;/script&gt;
+<img src="Screenshot_3.png" alt="Скріншот консолі" class="screen-img">
+                
+            </div><div id="task-5" class="lab3-section content-section text-content">
+                <p> Завдання №5</p>
+                <img src="menu.png" alt="Скріншот" class="screen-img">
+                <img src="menu_1.png" alt="Скріншот" class="screen-img">
+                <img src="menu_2.png" alt="Скріншот" class="screen-img">
+                <img src="menu_3.png" alt="Скріншот" class="screen-img">
+            </div><div id="conclusions-3" class="lab3-section content-section text-content">
+                <h2>Висновки</h2>
+                <p>Під час виконання лабораторної роботи були виконані кілька завдань для удосконалення навичок програмування на JavaScript та роботи з елементами HTML.</p> <p>Ця лабораторна робота сприяла покращенню навичок перевірки введених даних та взаємодії з користувачем через веб-сторінки.</p>
+
+            </div>
+        </div> <!-- Лабораторна робота 3_2 -->
+        <div id="lab3_2" class="content-section">
+            <div class="sidebar">
+                <button onclick="showSection('goal3_2', 'lab3_2')">Тема, мета, місце розташування сайту та звіту</button>
+                <button onclick="showSection('tasks-3_2', 'lab3_2')">Завдання</button>
+                <button onclick="showSection('conclusions-3_2', 'lab3_2')">Висновки</button>
+            </div>
+            <div id="goal3_2" class="lab3_2-section content-section text-content">
+                <p><strong>Тема:</strong>ОБ'ЄКТ. МЕТОДИ ОБ'ЄКТА. МАСИВ ОБ'ЄКТІВ. ДЕСТРУКТУРИЗАЦІЯ ОБ'ЄКТІВ. CALLBACK. СТРІЛОЧНІ ФУНКЦІЇ. СТРІЛОЧНІ ФУНКЦІЇ ЯК
+                КОЛБЕКИ.
+                </p><br />
+                <p><strong>Мета:</strong>придбати практичні навички роботи з об'єктами. Методи об'єкта.. Callback. Стрілочні функції. Стрілочні функції як
+                колбеки.Реалізація програм засовами мови JAVASCRIPT
+                <br />
+        
+                <a href="https://github.com/Olha-web-code/zpi-zp41_appWEB--ChernovaOlha---2025" style="margin-right: 30px;">Посилання на веб-сторінку</a><br/>
+                    
+                    <a href="https://olha-web-code.github.io/zpi-zp41_appRECORD-ChernovaOlha--MEU-2025/" style="margin-right: 10px;">Посилання на живу сторінку звітного HTML документа</a>
+                    <a href="https://github.com/Olha-web-code/zpi-zp41_appRECORD-ChernovaOlha--MEU-2025" style="margin-right: 30px;">Посилання на сторінку звітного HTML документа</a><br/>
+                    
+                    <a href="olha-web-code.github.io/zpi-zp41_appINDEPENDENT--ChernovaOlha----2025/" style="margin-right: 10px;">Посилання на живу сторінку з самостійними роботами</a>
+                    <a href="https://olha-web-code.github.io/zpi-zp41_appINDEPENDENT--ChernovaOlha----2025/">Посилання на сторінку з самостійними роботами</a><br/>
+            </div><div id="tasks-3_2" class="lab3_2-section content-section text-content">
+                <h2>Завдання 2</h2>
+                <pre><code>
+                    function successCallback (productId){
+                        return `Success! Product info: ${productId}`;
+                    } 
+                    
+                    function errorCallback (){
+                        return "Product not found!";
+                    }
+                    
+                    function getProductDetails(productId, successCallback, errorCallback){
+                    if (productId) {
+                        return successCallback(productId);
+                    } else {
+                        return errorCallback();
+                    }
+                    }
+                    
+                    console.log(getProductDetails(123, successCallback, errorCallback)); 
+                    console.log(getProductDetails(null, successCallback, errorCallback));
+                    
+                </code></pre>
+
+                <h2>Завдання 4</h2>
+                <pre><code>
+                    const concerts = {
+                        Київ: new Date("2020-04-01"),
+                        Умань: new Date("2025-07-02"),
+                        Вінниця: new Date("2020-04-21"),
+                        Одеса: new Date("2025-03-15"),
+                        Хмельницький: new Date("2020-04-18"),
+                        Харків: new Date("2025-07-10"),
+                    };
+                    
+                    const result = Object.entries(concerts)
+                        .filter(([city, date]) => date > new Date()) 
+                        .sort(([, dateA], [, dateB]) => dateA - dateB) 
+                        .map(([city]) => city); 
+                    
+                    console.log(result); 
+                </code></pre> 
+                
+                <h2>Завдання 6</h2>
+                <pre><code>
+                    const medicines = [
+                    { name: "Noshpa", price: 170 },
+                    { name: "Analgin", price: 55 },
+                    { name: "Quanil", price: 310 },
+                    { name: "Alphacholine", price: 390 },
+                ];
+
+                const applyDiscount = (medicines) => {
+                    return medicines.map((medicine, index) => {
+                        const discountedPrice = medicine.price > 300 ? medicine.price * 0.7 : medicine.price;
+                        return {
+                            id: index + 1, 
+                            name: medicine.name,
+                            price: discountedPrice.toFixed(2), // Round to 2 decimal places
+                        };
+                    });
+                };
+
+                const discountedMedicines = applyDiscount(medicines);
+                console.log(discountedMedicines);
+
+                </code></pre>
+
+                <h2>Завдання 8</h2>
+                <pre><code>
+                    function Storage(initialItems) {
+                        this.items = initialItems || []; 
+                    
+                        this.getItems = function () {
+                            return this.items;
+                        };
+                    
+                        this.addItem = function (item) {
+                            this.items.push(item);
+                        };
+                    
+                        this.removeItem = function (item) {
+                            const index = this.items.indexOf(item);
+                            if (index !== -1) {
+                                this.items.splice(index, 1);
+                            }
+                        };
+                    }
+                    
+                    const arr = ["apple", "banana", "mango"];
+                    const storage = new Storage(arr);
+                    
+                    console.log(storage.getItems()); 
+                    
+                    storage.addItem("grape");
+                    console.log(storage.getItems()); 
+                    
+                    storage.removeItem("banana");
+                    console.log(storage.getItems()); 
+                    
+                    storage.removeItem("orange"); 
+                    console.log(storage.getItems()); 
+                    
+                </code></pre>    
+               
+            <h2>Завдання 9</h2>
+                <pre><code>
+
+                const tweets = [
+                    { id: "000", likes: 5, tags: ["js", "nodejs"] },
+                    { id: "001", likes: 2, tags: ["html", "css"] },
+                    { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
+                    { id: "003", likes: 8, tags: ["css", "react"] },
+                    { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
+                ];
+
+                const countTags = (tweets) => {
+                    return tweets.reduce((acc, tweet) => {
+                        tweet.tags.forEach(tag => {
+                            acc[tag] = (acc[tag] || 0) + 1;
+                        });
+                        return acc;
+                    }, {}); 
+                };
+
+                const tagCounts = countTags(tweets);
+                console.log(tagCounts);
+
+                </code></pre>
+                
+                <h2>Завдання 10</h2>
+                <pre><code>
+                    function checkBrackets(str) {
+                        const stack = [];
+                        const brackets = {
+                            '(': ')',
+                            '{': '}',
+                            '[': ']'
+                        };
+                    
+                        for (let char of str) {
+                            
+                            if (brackets[char]) {
+                                stack.push(char);
+                            }
+                            else if (Object.values(brackets).includes(char)) {
+                                const lastBracket = stack.pop();
+                                if (brackets[lastBracket] !== char) {
+                                    return false; 
+                                }
+                            }
+                        }
+                    
+                        return stack.length === 0;
+                    }
+                    
+                    console.log(checkBrackets("(someFn)")); 
+                    console.log(checkBrackets("{[()]}")); 
+                    console.log(checkBrackets("{[(])}")); 
+                </code></pre>
+
+            </div><div id="conclusions-3_2" class="lab3_2-section content-section text-content">
+                <h2>Висновки з лабораторної роботи</h2>
+                <p>1. <strong>Робота з функціями та колбеками:</strong> Під час виконання завдання було освоєно використання функцій з колбеками. Це дозволяє створювати більш гнучкі програми, де одна функція може передавати результати іншій для подальшої обробки.</p>
+                
+                <p>2. <strong>Маніпулювання об'єктами та масивами:</strong> Завдання допомогло покращити навички роботи з об'єктами та масивами, зокрема, за допомогою таких методів як <code>map</code>, <code>filter</code>, <code>reduce</code> і <code>sort</code>, які є важливими для обробки і трансформації даних у JavaScript.</p>
+                
+                <p>3. <strong>Приватні властивості в класах:</strong> Ознайомлення з приватними властивостями в класах через символ <code>#</code> дозволило глибше зрозуміти концепцію інкапсуляції в ООП. Приватні властивості допомагають контролювати доступ до даних, що підвищує безпеку та підтримку коду.</p>
+                
+                <p>4. <strong>Робота з датами:</strong> Завдання, пов'язане з медичними препаратами та їх термінами придатності, підкреслило важливість використання об'єктів типу <code>Date</code> для порівняння та маніпулювання датами.</p>
+                
+                <p>5. <strong>Перевірка коректності структури рядка:</strong> Виконання завдання на перевірку правильності закриття дужок допомогло краще освоїти роботу з рядками та алгоритмами їх обробки в JavaScript.</p>
+                
+        </div>
+    </main>
+
+    <script>
+        // Функція для відображення вибраної лабораторної роботи
+        function showLab(labId) {
+            const labs = document.querySelectorAll('.content-section');
+            labs.forEach(lab => lab.classList.remove('active'));
+            document.getElementById(labId).classList.add('active');
+        }
+
+        // Функція для відображення вибраного розділу у вибраній лабораторній роботі
+        function showSection(sectionId, labId) {
+            const activeLab = document.getElementById(labId);
+            if (activeLab) {
+                const sections = activeLab.querySelectorAll(`.${labId}-section`);
+                sections.forEach(section => section.style.display = 'none');
+                activeLab.querySelector(`#${sectionId}`).style.display = 'block';
+            }
+        }
+
+        // Ініціалізація: показ першої лабораторної роботи і першого розділу
+        document.addEventListener("DOMContentLoaded", () => {
+            showLab('lab1');
+            showSection('description', 'lab1');
+        });
+
+        document.querySelectorAll('.sidebar button').forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelectorAll('.sidebar button').forEach(btn => btn.classList.remove('active-button'));
+                button.classList.add('active-button');
+            });
+        });
+
+        document.querySelectorAll('nav button').forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active-button'));
+                button.classList.add('active-button');
+            });
+        });
+    </script>
 </body>
-</html>
